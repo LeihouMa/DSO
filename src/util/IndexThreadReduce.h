@@ -191,7 +191,8 @@ private:
 				callPerIndex(todo, std::min(todo+stepSize, maxIndex), &s, idx);
 				gotOne[idx] = true;
 				//这里lock之后，其他线程也是可以自己自己解锁的，见前两行代码
-
+				//这里要写stats，所以上锁,上锁之后要解锁之后其他进程才能上锁
+				//所以这里之后的解锁可能是由unique_lock来完成
 				lock.lock();
 				stats += s;
 			}
