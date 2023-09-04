@@ -190,6 +190,8 @@ private:
 				Running s; memset(&s, 0, sizeof(Running));
 				callPerIndex(todo, std::min(todo+stepSize, maxIndex), &s, idx);
 				gotOne[idx] = true;
+				//这里lock之后，其他线程也是可以自己自己解锁的，见前两行代码
+
 				lock.lock();
 				stats += s;
 			}
