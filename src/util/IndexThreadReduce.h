@@ -213,6 +213,7 @@ private:
 				isDone[idx] = true;
 				//printf("worker %d waiting..\n", idx);
 				done_signal.notify_all();
+				//等待todo_signal过程中会释放lock
 				todo_signal.wait(lock);
 			}
 		}
