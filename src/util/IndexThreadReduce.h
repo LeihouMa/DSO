@@ -50,6 +50,7 @@ public:
 		callPerIndex = boost::bind(&IndexThreadReduce::callPerIndexDefault, this, _1, _2, _3, _4);
 
 		running = true;
+			// NUM_THREADS=6
 		for(int i=0;i<NUM_THREADS;i++)
 		{
 			isDone[i] = false;
