@@ -93,7 +93,7 @@ public:
 
 
 		//printf("reduce called\n");
-
+//主进程获取互斥锁，主进程进行，workerThreads处于停滞
 		boost::unique_lock<boost::mutex> lock(exMutex);
 
 		// save
