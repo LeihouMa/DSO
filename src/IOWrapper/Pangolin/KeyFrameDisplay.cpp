@@ -98,7 +98,7 @@ void KeyFrameDisplay::setFromKF(FrameHessian* fh, CalibHessian* HCalib)
 		numSparseBufferSize = npoints+100;
         originalInputSparse = new InputPointSparse<MAX_RES_PER_POINT>[numSparseBufferSize];
 	}
-
+//setFromKF中把当前帧中的immaturePoints、pointHessians、pointHessiansMarginalized、pointHessiansOut中所有的点加入一个数组，然后显示出来。
     InputPointSparse<MAX_RES_PER_POINT>* pc = originalInputSparse;
 	numSparsePoints=0;
 	for(ImmaturePoint* p : fh->immaturePoints)
