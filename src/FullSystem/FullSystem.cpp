@@ -313,6 +313,7 @@ Vec4 FullSystem::trackNewCoarse(FrameHessian* fh)
 
 		//! 尝试不同的运动
 		// get last delta-movement.
+		//求的是最后一帧参考帧到当前帧的变换
 		lastF_2_fh_tries.push_back(fh_2_slast.inverse() * lastF_2_slast);	// assume constant motion.
 		lastF_2_fh_tries.push_back(fh_2_slast.inverse() * fh_2_slast.inverse() * lastF_2_slast);	// assume double motion (frame skipped)
 		lastF_2_fh_tries.push_back(SE3::exp(fh_2_slast.log()*0.5).inverse() * lastF_2_slast); // assume half motion.
